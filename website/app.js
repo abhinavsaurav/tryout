@@ -35,7 +35,7 @@ function performAction(e) {
 				fav: textAreaOk,
 			});
 		})
-		.then(updateUI());
+		.then(() => updateUI());
 }
 
 const getAnimal = async (baseURL, animal, key) => {
@@ -60,6 +60,9 @@ const updateUI = async () => {
 		console.log(
 			dataa
 		); /** getting no Data here on first try but works after that*/
+		document.getElementById("box11").innerHTML = dataa[0].animals; //returning to array
+		document.getElementById("box22").innerHTML = dataa[0].fact;
+		document.getElementById("box33").innerHTML = dataa[0].fav;
 	} catch (error) {
 		console.log("error!" + error);
 	}
