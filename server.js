@@ -22,7 +22,7 @@ function listening() {
 }
 
 app.get("/", (req, res) => {
-	res.send("Wrong directory bro!");
+	res.send("Wrong directory!");
 });
 
 const data = [];
