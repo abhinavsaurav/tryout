@@ -1,0 +1,26 @@
+myapp/node_modules
+components/node_modules
+
+myapp/coverage
+
+# production
+myapp/build
+
+# misc
+myapp/DS_Store
+myapp/.env.local
+myapp/.env.development.local
+myapp/.env.test.local
+myapp/.env.production.local
+
+components/coverage
+
+# production
+components/build
+
+# misc
+components/.DS_Store
+components/.env.local
+components/.env.development.local
+components/.env.test.local
+components/.env.production.local
