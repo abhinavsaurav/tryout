@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head> </head>
+	<body>
+		<form id="myform" action="lol.html">
+			<label>Enter name</label>
+			<input type="text" id="name1" />
+			<label>Enter dob</label>
+			<input type="date" id="date1" />
+			<button type="submit">Submit</button>
+			<div id="err"></div>
+		</form>
+		<script>
+			const form1 = document.getElementById("myform");
+			form1.addEventListener("submit", (e) => {
+				e.preventDefault();
+				document.getElementById("err").innerHTML = "";
+				const name1 = document.getElementById("name1").value;
+				const dob1 = document.getElementById("date1").value;
+				if (name1.length > 5) {
+					console.log(name1.length);
+					let today = new Date();
+					let gotDate = new Date(dob1);
+					console.log(gotDate > today);
+
+					if (gotDate > today) {
+						console.log("reached here");
+						// form1.submit();
+					} else {
+						document.getElementById("err").innerHTML = "error in date";
+					}
+				} else {
+					console.log(name1.length);
+					document.getElementById("err").innerHTML = "error in name";
+				}
+			});
+		</script>
+	</body>
+</html>
