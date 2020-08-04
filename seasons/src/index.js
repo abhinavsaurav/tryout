@@ -13,7 +13,7 @@ class App extends React.Component {
 		/**
 		 * This is the only time we do direct assignment
 		 */
-		this.state = { lat: null };
+		this.state = { lat: null, errMessage: "" };
 
 		window.navigator.geolocation.getCurrentPosition(
 			(position) => {
@@ -23,7 +23,7 @@ class App extends React.Component {
 				//we should never write direct assignment to this.state.lat= position.coords.latitude
 			},
 			(err) => {
-				console.log(err);
+				this.setState({ errMessage: err.message }); //we set the err.message using the err which we print in console.log(err) to see what's inside
 			}
 		);
 	}
@@ -34,7 +34,13 @@ class App extends React.Component {
 		// will get called again and again for re-rendering so, its gonna make some time if we call it here
 
 		// Also direct object assignment will throw error
-		return <div>Lat: {this.state.lat}</div>;
+		if (this.state.errMessage && !this.state.lat) {
+			return <div>error: {this.state.errMessage}</div>;
+		} else if (!this.state.errMessage && this.state.lat) {
+			return <div>Lat: {this.state.lat}</div>;
+		} else {
+			return <div>Loading</div>;
+		}
 	}
 }
 
